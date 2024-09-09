@@ -1,4 +1,4 @@
-# Lab 3-1 : Installing PQ 
+# Lab 3-1 : Installing PostgreSQL 
 
 ### Objectives
 
@@ -6,16 +6,62 @@
 2. Install from binaries
 3. Create a user and database
 4. Configure remote access
-5. Restart and test
+
+## Update
+
+The key required for logging in remotely cannot be stored in the GitHub repository since the security protocols will not allow it.
+
+Instead, you will have to download it separately from a utility website.
+
+
+
 
 ### Part 1: Login to your AWS machine
 
-You will be provided with an IP address for an AWS EC2 instance running ubuntu. In the lab directory is a ppk file that you can use to remote into your ubuntu instance. The instructor will walk you through the process of logging into your VMs. There is additional documentation on this process in the VMs directory in the repository.
+You will be provided with an IP address for an AWS EC2 instance running ubuntu. ~~In the lab directory is a ppk file that you can use to remote into your ubuntu instance.~~ The instructor will walk you through the process of logging into your VMs. There is additional documentation on this process in the VMs directory in the repository.
+
+Update: The ppk key cannot be stored in the GitHub repository. Instead, you have to download it from a utility website.
+
+Open a command prompt in your VM and go the director you want to work in. 
+
+Execute the command:
+
+```shell
+curl -o studentpostgres.ppk http://exgnosis.org:80/studentpostgres.ppk
+```
+Which should look like this
+
+<img src="images/key.png" alt="" width="600">
+
 
 You will be using Putty to connect.
 
 Open the putty application from the start menu
+
+<img src="images/lab3-1-10.png" alt="" width="400" />
    
+In the host name field, enter the connect string as shown below **but use the IP address you have been assigned, not the one shown**
+
+<img src="images/lab3-1-11.png" alt="" width="400" />
+
+Now you have to add the private ssh key. Open up the `SSH` option under `Connection` as shown and select `Auth` 
+
+
+<img src="images/lab3-1-12.png" alt="" width="400" />
+
+Select the browse button and then browse to the `studentpostgres.ppk` file and select it as shown
+
+Select `Open` and you should see this screen
+
+<img src="images/lab3-1-13.png" alt="" width="400" />
+
+Select `Accept` and you should see:
+
+<img src="images/lab3-1-14.png" alt="" width="400" />
+
+You are now connected.
+
+
 ---
 
 ## Part 2: Install from binaries
